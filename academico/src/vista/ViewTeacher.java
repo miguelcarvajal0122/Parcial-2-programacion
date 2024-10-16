@@ -1,7 +1,7 @@
 package vista;
 
 import interfaces.IMostrarMensaje;
-import modelo.Student;
+
 import modelo.Teacher;
 
 import java.util.List;

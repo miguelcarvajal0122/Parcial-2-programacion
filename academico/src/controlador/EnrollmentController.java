@@ -1,8 +1,9 @@
 package controlador;
 
-import modeloEnrollmentController
 import vista.ViewEnrollment;
 import java.util.List;
+
+import modelo.Enrollment;
 
 public class EnrollmentController {
     private ViewEnrollment view;
@@ -13,7 +14,7 @@ public class EnrollmentController {
 
     public void insertNewEnrollment(Enrollment enrollment) {
         Enrollment.insertEnrollment(enrollment);
-        view.mostrarMensaje("\nInscripción guardada correctamente!");
+        view.mostrarMensaje("\nInscription guardada correctamente!");
     }
 
     public void displayAllEnrollments() {

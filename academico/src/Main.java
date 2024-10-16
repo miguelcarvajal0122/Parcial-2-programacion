@@ -3,12 +3,14 @@ import controlador.StudentController;
 import controlador.TeacherController;
 import controlador.GradesController;
 import controlador.EnrollmentController;
+import controlador.GradeTypeController;
 import db.connection;
 import modelo.Course;
 import modelo.Student;
 import modelo.Teacher;
 import modelo.Enrollment;
 import modelo.Grade;
+import modelo.GradeType;
 import vista.ViewCourse;
 import vista.ViewStudent;
 import vista.ViewTeacher;
@@ -16,6 +18,7 @@ import vista.ViewGrade;
 import vista.ViewEnrollment;
 
 public class Main {
+    @SuppressWarnings("unused")
     public static void main(String[] args) {
         System.out.println("Bienvenido a nuestro sistema académico!");
 
@@ -25,6 +28,7 @@ public class Main {
         ViewCourse viewCourse = new ViewCourse();
         ViewGrade viewGrade = new ViewGrade();
         ViewEnrollment viewEnrollment = new ViewEnrollment();
+        GradeTypeController gradeTypeController = new GradeTypeController();
 
 
 
@@ -34,6 +38,7 @@ public class Main {
         CourseController courseController = new CourseController(viewCourse);
         GradesController gradesController = new GradesController(viewGrade);
         EnrollmentController EnrollmentController = new EnrollmentController(viewEnrollment);
+        GradeTypeController GradeTypeController = new GradeTypeController();
 
 
         // Inicializar objetos de estudiante
@@ -92,5 +97,26 @@ public class Main {
 
         // Mostrar calificaciones en la vista
         gradesController.displayAllGrades();
+
+
+         // Inicializar y guardar tipos de calificación
+        GradeType gradeType1 = new GradeType(1, "Examen Final", 0.5, "2024-10-15");
+        GradeType gradeType2 = new GradeType(2, "Tarea", 0.2, "2024-10-15");
+        gradeTypeController.insertNewGradeType(gradeType1);
+        gradeTypeController.insertNewGradeType(gradeType2);
+
+        // Mostrar tipos de calificación
+        gradeTypeController.displayAllGradeTypes();
+
+        Course enrollment1;
+        // Inicializar y guardar calificaciones
+        Grade grade1 = new Grade(1, enrollment1.getId(), gradeType1.getId(), 4.5, "2024-10-15");
+        Grade grade2 = new Grade(2, enrollment2.getId(), gradeType2.getId(), 3.8, "2024-10-15");
+        gradesController.insertNewGrade(grade1);
+        gradesController.insertNewGrade(grade2);
+
+        // Mostrar calificaciones
+        gradesController.displayAllGrades();
+        
     }
 }
