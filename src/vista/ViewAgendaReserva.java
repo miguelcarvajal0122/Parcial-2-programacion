@@ -2,6 +2,7 @@ package vista;
 
 import modelo.AgendaReserva;
 import java.util.List;
+import interfaces.IMostrarMensaje;
 
 public class ViewAgendaReserva {
 

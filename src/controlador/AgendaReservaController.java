@@ -3,6 +3,7 @@ package controlador;
 import modelo.AgendaReserva;
 import vista.ViewAgendaReserva;
 import java.util.List;
+import interfaces.IMostrarMensaje;
 
 public class AgendaReservaController {
     private ViewAgendaReserva view;
@@ -21,6 +22,6 @@ public class AgendaReservaController {
     // Mostrar todas las reservas de la agenda en la vista
     public void displayAllAgendaReservas() {
         List<AgendaReserva> reservas = AgendaReserva.getAllAgendaReservas();
-        view.displayAgendaReservas(reservas);
+        view.displayListAgendaReservas(reservas);
     }
 }
